@@ -1,25 +1,27 @@
 body {
   font: 400 15px Lato, sans-serif;
   line-height: 1.8;
-  color: #818181;
+  color: #d3bf17; /* Zmiana koloru napisów na złoty */
 }
 h2 {
   font-size: 24px;
   text-transform: uppercase;
-  color: #303030;
+  color: #d3bf17; /* Zmiana koloru napisów na złoty */
   font-weight: 600;
   margin-bottom: 30px;
 }
 h4 {
   font-size: 19px;
   line-height: 1.375em;
-  color: #303030;
+  color: #d3bf17; /* Zmiana koloru napisów na złoty */
   font-weight: 400;
   margin-bottom: 30px;
 }
 
 .jumbotron {
   font-family: Montserrat, sans-serif;
+  background-color: #6A0DAD; /* Zmiana koloru tła na fioletowy */
+  color: #d3bf17; /* Zmiana koloru tekstu na złoty */
 }
 
 .jumbotron h1 {
@@ -28,53 +30,27 @@ h4 {
 
 .navbar {
   font-family: Montserrat, sans-serif;
-}
-
-.bg-grey {
-  background-color: #f6f6f6;
-}
-
-/* navbar start */
-.navbar {
-  margin-bottom: 0;
-  background-color: #333;
-  z-index: 9999;
-  border: 0;
-  font-size: 12px !important;
-  line-height: 1.42857143 !important;
-  letter-spacing: 4px;
-  border-radius: 0;
+  background-color: #6A0DAD; /* Zmiana koloru paska nawigacji na fioletowy */
 }
 
 .navbar li a,
 .navbar .navbar-brand {
-  color: #fff !important;
-}
-
-.navbar-header {
-  /* height: 80px; */
+  color: #d3bf17 !important; /* Zmiana koloru napisów na złoty */
 }
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
-  color: #f4511e !important;
-  background-color: #fff !important;
+  color: #6A0DAD !important; /* Zmiana koloru napisu na fioletowy przy najechaniu */
+  background-color: #d3bf17 !important; /* Zmiana tła na złoty */
 }
 
 .navbar-default .navbar-toggle {
   border-color: transparent;
-  color: #fff !important;
+  color: #d3bf17 !important; /* Zmiana koloru na złoty */
 }
 
 #myNavbar {
   padding-top: 15px;
-}
-/* navbar end */
-
-.jumbotron {
-  background-color: #ef0c0c;
-  color: #fff;
-  padding: 100px 25px;
 }
 
 .container-fluid {
@@ -82,12 +58,12 @@ h4 {
 }
 
 .logo-small {
-  color: #ef0c0c;
+  color: #6A0DAD; /* Zmiana koloru na fioletowy */
   font-size: 50px;
 }
 
 .logo {
-  color: #ef0c0c;
+  color: #6A0DAD; /* Zmiana koloru na fioletowy */
   font-size: 150px;
 }
 
@@ -98,9 +74,8 @@ h4 {
   }
 }
 
-/* price panels start */
 .panel {
-  border: 1px solid #ef0c0c;
+  border: 1px solid #6A0DAD; /* Zmiana koloru ramki na fioletowy */
   border-radius: 0;
   transition: box-shadow 0.5s;
 }
@@ -110,20 +85,15 @@ h4 {
 }
 
 .panel-footer .btn:hover {
-  border: 1px solid #ef0c0c;
+  border: 1px solid #6A0DAD; /* Zmiana koloru ramki na fioletowy */
   background-color: #fff !important;
-  color: #ef0c0c;
+  color: #6A0DAD; /* Zmiana koloru tekstu na fioletowy */
 }
 
 .panel-heading {
   color: #fff !important;
-  background-color: #ef0c0c !important;
+  background-color: #6A0DAD !important; /* Zmiana koloru tła na fioletowy */
   padding: 25px;
-  border-bottom: 1px solid transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 
 .panel-footer {
@@ -141,24 +111,22 @@ h4 {
 
 .panel-footer .btn {
   margin: 15px 0;
-  background-color: #333;
+  background-color: #6A0DAD; /* Zmiana koloru tła na fioletowy */
   color: #fff;
 }
-/* price panels end */
 
-/* carousel starts */
 .carousel-control.right,
 .carousel-control.left {
   background-image: none;
-  color: #ef0c0c;
+  color: #6A0DAD; /* Zmiana koloru na fioletowy */
 }
 
 .carousel-indicators li {
-  border-color: #ef0c0c;
+  border-color: #6A0DAD; /* Zmiana koloru na fioletowy */
 }
 
 .carousel-indicators li.active {
-  background-color: #ef0c0c;
+  background-color: #6A0DAD; /* Zmiana koloru na fioletowy */
 }
 
 .item h4 {
@@ -167,55 +135,23 @@ h4 {
   font-weight: 400;
   font-style: italic;
   margin: 70px 0;
+  color: #d3bf17; /* Zmiana koloru tekstu na złoty */
 }
 
 .item span {
   font-style: normal;
 }
-/* carousel ends */
 
 footer {
-  background-color: #333;
+  background-color: #6A0DAD; /* Zmiana koloru tła stopki na fioletowy */
 }
 
 footer .glyphicon {
   font-size: 20px;
   margin-bottom: 20px;
-  color: #ef0c0c;
+  color: #d3bf17; /* Zmiana koloru ikon na złoty */
 }
 
 .slideanim {
   visibility: hidden;
-}
-.slide {
-  /* The name of the animation */
-  animation-name: slide;
-  -webkit-animation-name: slide;
-  /* The duration of the animation */
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  /* Make the element visible */
-  visibility: visible;
-}
-
-/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
 }
