@@ -1,168 +1,121 @@
 body {
-  font: 400 15px Lato, sans-serif;
+  font: 400 15px "Lato", sans-serif;
   line-height: 1.8;
-  color: #FFD700; 
+  color: #FFD700;
+  background-color: #6A0DAD;
 }
+
 h2 {
-  font-size: 24px;
+  font-size: 28px;
   text-transform: uppercase;
-  color: #FFD700; 
+  color: #FFD700;
   font-weight: 600;
   margin-bottom: 30px;
 }
+
 h4 {
   font-size: 19px;
   line-height: 1.375em;
-  color: #FFD700; 
+  color: #FFD700;
   font-weight: 400;
   margin-bottom: 30px;
 }
 
 .jumbotron {
+  background-color: #6A0DAD;
+  color: #FFD700;
+  padding: 100px 25px;
   font-family: Montserrat, sans-serif;
-  background-color: #6A0DAD; 
-  color: #FFD700; 
 }
 
 .jumbotron h1 {
-  font-family: Rubik Glitch, sans-serif;
-  color: #FFD700; 
+  font-size: 50px;
+  font-family: "Rubik Glitch", sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .navbar {
+  background-color: #6A0DAD;
+  border: none;
   font-family: Montserrat, sans-serif;
-  background-color: #6A0DAD; 
 }
 
-.navbar li a,
-.navbar .navbar-brand {
-  color: #FFD700 !important; 
+.navbar a {
+  color: #FFD700 !important;
 }
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
-  color: #6A0DAD !important; 
-  background-color: #FFD700 !important; 
-}
-
-.navbar-default .navbar-toggle {
-  border-color: transparent;
-  color: #FFD700 !important; 
-}
-
-#myNavbar {
-  padding-top: 15px;
-}
-
-.container-fluid {
-  padding: 60px 50px;
-}
-
-.logo-small {
-  color: #FFD700; 
-  font-size: 50px;
-}
-
-.logo {
-  color: #FFD700; 
-  font-size: 150px;
-}
-
-@media screen and (max-width: 768px) {
-  .col-sm-4 {
-    text-align: center;
-    margin: 25px 0;
-  }
+  color: #6A0DAD !important;
+  background-color: #FFD700 !important;
 }
 
 .panel {
-  border: 1px solid #6A0DAD; 
-  border-radius: 0;
+  border: 1px solid #FFD700;
   transition: box-shadow 0.5s;
+  border-radius: 0;
 }
 
 .panel:hover {
-  box-shadow: 5px 0px 40px rgba(0, 0, 0, 0.2);
-}
-
-.panel-footer .btn:hover {
-  border: 1px solid #6A0DAD; 
-  background-color: #FFD700 !important; 
-  color: #6A0DAD; 
+  box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.2);
 }
 
 .panel-heading {
-  color: #FFD700 !important; 
-  background-color: #6A0DAD !important; 
+  color: #FFD700;
+  background-color: #6A0DAD;
   padding: 25px;
 }
 
 .panel-footer {
-  background-color: #fff !important;
-}
-
-.panel-footer h3 {
-  font-size: 32px;
-}
-
-.panel-footer h4 {
-  color: #FFD700; 
-  font-size: 14px;
+  background-color: #fff;
 }
 
 .panel-footer .btn {
-  margin: 15px 0;
-  background-color: #6A0DAD; 
-  color: #FFD700; 
+  background-color: #6A0DAD;
+  color: #FFD700;
+  border: 1px solid #FFD700;
 }
 
-.carousel-control.right,
-.carousel-control.left {
-  background-image: none;
-  color: #FFD700; 
-}
-
-.carousel-indicators li {
-  border-color: #FFD700; 
-}
-
-.carousel-indicators li.active {
-  background-color: #FFD700; 
-}
-
-.item h4 {
-  font-size: 19px;
-  line-height: 1.375em;
-  font-weight: 400;
-  font-style: italic;
-  margin: 70px 0;
-  color: #FFD700; 
-}
-
-.item span {
-  font-style: normal;
+.panel-footer .btn:hover {
+  background-color: #FFD700;
+  color: #6A0DAD;
 }
 
 footer {
-  background-color: #6A0DAD; 
-  color: #FFD700; 
+  background-color: #6A0DAD;
+  color: #FFD700;
+  padding: 25px;
 }
 
 footer .glyphicon {
   font-size: 20px;
   margin-bottom: 20px;
-  color: #FFD700; 
+  color: #FFD700;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+  color: #FFD700;
+}
+
+.carousel-indicators li {
+  border-color: #FFD700;
+}
+
+.carousel-indicators li.active {
+  background-color: #FFD700;
 }
 
 .slideanim {
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s ease-out;
 }
-.slide {
-  animation-name: slide;
-  -webkit-animation-name: slide;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+
+.slideanim.slide {
   visibility: visible;
+  opacity: 1;
 }
 
 @keyframes slide {
@@ -173,15 +126,5 @@ footer .glyphicon {
   100% {
     opacity: 1;
     transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
   }
 }
