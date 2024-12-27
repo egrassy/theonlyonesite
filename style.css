@@ -27,8 +27,6 @@ html {
   text-decoration: none;
 }
 
-/* general styling */
-
 *,
 *::before,
 *::after {
@@ -64,21 +62,6 @@ html {
   --clr-primary-500: hsl(190, 100%, 28%);
 }
 
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Gerenal spacing and font reset */
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
-/* Set core body defaults */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
@@ -98,14 +81,12 @@ code {
   font-family: monospace;
 }
 
-/* Make images easier to work with */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -120,8 +101,6 @@ picture {
     scroll-behavior: auto !important;
   }
 }
-
-/* Utilities */
 
 .fs-900 {
   font-size: var(--fs-900);
@@ -313,8 +292,6 @@ picture {
   margin-inline: auto;
 }
 
-/* general styling */
-
 body {
   font-family: system-ui, sans-serif;
   font-size: var(--fs-400);
@@ -370,8 +347,6 @@ h2 {
   font-weight: 900;
 }
 
-/* socials */
-
 .buttons {
   display: flex;
   flex-direction: row;
@@ -400,7 +375,6 @@ h2 {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  /* display: flex; */
   justify-content: center;
   transition: all 550ms cubic-bezier(0.36, 0.63, 0.5, 0.73);
 }
@@ -410,4 +384,45 @@ h2 {
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   color: var(--accent);
+}
+
+.logo {
+  font-size: 4rem;
+  color: var(--clr-primary-500);
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--clr-neutral-200);
+  border-radius: 50%;
+  border: 2px solid var(--clr-primary-400);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  color: var(--clr-primary-300);
+}
+
+.logo-small {
+  font-size: 2.5rem;
+  color: var(--clr-primary-400);
+  margin: 0.5rem;
+}
+
+.logo-small:hover {
+  transform: scale(1.1);
+  background-color: var(--clr-neutral-100);
+}
+
+.navbar .logo {
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 3rem;
+    padding: 0.8rem;
+  }
+  .logo-small {
+    font-size: 2rem;
+  }
 }
