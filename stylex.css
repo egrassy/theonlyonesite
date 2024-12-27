@@ -88,7 +88,7 @@ footer {
 }
 
 footer .glyphicon {
-  font-size: 20px;
+  font-size: 40px;
   margin-bottom: 20px;
   color: #FFD700;
 }
@@ -127,4 +127,37 @@ footer .glyphicon {
     opacity: 1;
     transform: translateY(0%);
   }
+}
+
+.logo {
+  font-size: 60px;
+  color: #FFD700;
+  margin: 20px;
+  padding: 15px;
+  background-color: #6A0DAD;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  background-color: #FFD700;
+  color: #6A0DAD;
+}
+
+.logo-small {
+  font-size: 40px;
+  color: #FFD700;
+  margin: 10px;
+  padding: 10px;
+  background-color: #6A0DAD;
+  border-radius: 50%;
+  border: 2px solid #FFD700;
+}
+
+.logo-small:hover {
+  transform: scale(1.1);
+  background-color: #FFD700;
+  color: #6A0DAD;
 }
