@@ -1,12 +1,14 @@
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr); /* Cztery obrazy w jednym wierszu */
+  gap: 16px; /* Odstępy między obrazami */
   padding: 20px;
+  justify-items: center; /* Centrowanie obrazów w siatce */
 }
 
 .gallery img {
-  width: 100%;
+  width: 100%; /* Ustawienie szerokości obrazów */
+  max-width: 200px; /* Maksymalna szerokość obrazów */
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -14,6 +16,23 @@
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Efekt powiększenia po najechaniu */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Cień po najechaniu */
+}
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr); /* Trzy obrazy w wierszu */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* Dwa obrazy w wierszu */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Jeden obraz w wierszu */
+  }
 }
