@@ -1,133 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>XXX Liquidity DAO</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css" />
+    <meta name="theme-color" content="#100d22" />
+    <meta
+      name="description"
+      content="XXX Liquidity DAO — liquidity, governance and ecosystem assets on Terra."
+    />
+    <title>XXX Liquidity DAO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="stylex.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Rubik+Glitch" rel="stylesheet" type="text/css" />
-    <script src="jquery.min.js"></script>
-    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
   </head>
-  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="200">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-          </button>
-          <a class="navbar-brand" href="#myPage">
-            <img src="xxx.png" alt="xxx" style="width: 60px; border-radius: 50%" />
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="XXX Liquidity DAO home">
+          <span class="brand-mark"><img src="xxx.png" alt="" /></span>
+          <span>XXX <em>DAO</em></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Open menu</span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="site-menu">
+          <a href="#about">About</a>
+          <a href="#utility">Utility</a>
+          <a href="#dao">DAO</a>
+          <a href="#ecosystem">Ecosystem</a>
+          <a class="nav-cta" href="#ecosystem">Explore</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <p class="eyebrow"><span></span> Terra ecosystem / liquidity DAO</p>
+          <h1 id="hero-title">Built for the <strong>long game.</strong></h1>
+          <p class="hero-copy">
+            XXX Liquidity DAO brings liquidity, governance and ecosystem assets together on the Terra blockchain.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#ecosystem">Explore ecosystem <span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="#dao">How the DAO works <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta" aria-label="DAO focus areas">
+            <span>Liquidity</span><span>Governance</span><span>Community</span>
+          </div>
+        </div>
+        <div class="hero-monogram" aria-hidden="true"><span>XXX</span><i>Liquidity DAO</i></div>
+      </section>
+
+      <section class="section section-about" id="about">
+        <div class="container two-column">
+          <div>
+            <p class="eyebrow"><span></span> 01 / Our evolution</p>
+            <h2>From an idea to an <span>ecosystem.</span></h2>
+          </div>
+          <div class="about-copy">
+            <p class="lead">
+              Founded in 2023 as TheOnlyOne DAO, we set out to make liquidity strategies more useful for the Terra ecosystem.
+            </p>
+            <p>
+              XXX Liquidity DAO is the next chapter: a home for sustainable liquidity, community-led decisions and projects that give the ecosystem more ways to grow.
+            </p>
+            <div class="timeline" aria-label="DAO timeline">
+              <div><b>2023</b><span>TheOnlyOne DAO begins</span></div>
+              <div><b>Today</b><span>XXX Liquidity DAO evolves</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-utility" id="utility">
+        <div class="container utility-heading">
+          <p class="eyebrow"><span></span> 02 / Key utility</p>
+          <h2>Make liquidity <span>work harder.</span></h2>
+          <p>XXX introduces liquidity across multiple Terra pairs to strengthen stability and expand opportunities within the ecosystem.</p>
+        </div>
+        <div class="container feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <div class="feature-icon icon-wave" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3>Liquidity</h3>
+            <p>Market access across XXX pairs, built around a more resilient ecosystem.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <div class="feature-icon icon-vault" aria-hidden="true"><i></i></div>
+            <h3>Treasury</h3>
+            <p>DAO-owned assets and strategic projects designed for sustainable growth.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <div class="feature-icon icon-nodes" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3>Governance</h3>
+            <p>A practical role for holders in the decisions shaping what comes next.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-dao" id="dao">
+        <div class="container dao-layout">
+          <div class="dao-statement">
+            <p class="eyebrow"><span></span> 03 / Decentralized growth</p>
+            <h2>More than a token. <span>A shared direction.</span></h2>
+            <p>Three connected levers turn participation into momentum for the DAO and its ecosystem.</p>
+          </div>
+          <div class="dao-list">
+            <article>
+              <span>01</span><div><h3>Staking</h3><p>Earn rewards by staking your XXX tokens.</p></div><b aria-hidden="true">↗</b>
+            </article>
+            <article>
+              <span>02</span><div><h3>Buyback</h3><p>We reinvest in strategic projects and conduct token buybacks.</p></div><b aria-hidden="true">↗</b>
+            </article>
+            <article>
+              <span>03</span><div><h3>Governance</h3><p>Vote on key proposals shaping the future of the DAO.</p></div><b aria-hidden="true">↗</b>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-ecosystem" id="ecosystem">
+        <div class="container ecosystem-heading">
+          <div><p class="eyebrow"><span></span> 04 / Navigate</p><h2>The XXX <span>ecosystem.</span></h2></div>
+          <p>Three places to follow liquidity, explore the wider universe and discover the collection.</p>
+        </div>
+        <div class="container ecosystem-grid">
+          <a class="ecosystem-card card-chart" href="https://app.astroport.fi/trade?poolAddress=terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg" target="_blank" rel="noreferrer">
+            <span class="card-kicker">Market</span><div class="chart-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h3>Astroport</h3><p>Trade through the XXX liquidity pool.</p><b>Open pool <span>↗</span></b>
+          </a>
+          <a class="ecosystem-card card-drogo" href="drogo.html">
+            <span class="card-kicker">Culture</span><div class="dragon-art" aria-hidden="true">D</div><h3>Drogo's Cave</h3><p>Enter the world of our meme coin.</p><b>Explore Drogo <span>→</span></b>
+          </a>
+          <a class="ecosystem-card card-nft" href="https://stargaze.zone/m/cosmos16xxk2s73dfcwdshvmq4yupzlfv82kwrhqjaz8ykk8sspusmfjszqedwnp0" target="_blank" rel="noreferrer">
+            <span class="card-kicker">Collect</span><div class="nft-art" aria-hidden="true"><i></i><i></i><i></i></div><h3>XGUY NFTs</h3><p>Discover the official NFT collection.</p><b>View collection <span>↗</span></b>
           </a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#utility">UTILITY</a></li>
-            <li><a href="#dao">DAO</a></li>
-            <li><a href="#navigation">NAVIGATE</a></li>
-          </ul>
-        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark"><img src="xxx.png" alt="" /></span><span>XXX <em>DAO</em></span></a>
+        <p>Liquidity. Governance. Terra.</p>
+        <a class="back-to-top" href="#top">Back to top ↑</a>
       </div>
-    </nav>
-
-    <div class="jumbotron text-center">
-      <h1>XXX Liquidity DAO</h1>
-      <p>Revolutionizing Liquidity and NFTs on the Terra Blockchain</p>
-    </div>
-
-    <section id="about" class="container-fluid">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>The Evolution of XXX Liquidity DAO</h2>
-          <p>
-            Founded in 2023 as TheOnlyOne DAO, our mission was to transform liquidity strategies in the Terra ecosystem.
-            Now, in 2024, we have evolved into XXX Liquidity DAO, bringing next-level innovation and sustainability.
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-stats logo"></span>
-        </div>
-      </div>
-    </section>
-
-    <section id="utility" class="container-fluid bg-grey">
-      <div class="row">
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-tasks logo"></span>
-        </div>
-        <div class="col-sm-8">
-          <h2>Key Utilities</h2>
-          <p>
-            By introducing liquidity for token XXX across multiple pairs on the Terra blockchain, XXX Liquidity DAO strengthens stability
-            and expands opportunities within the ecosystem.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="dao" class="container-fluid text-center">
-      <h2>DAO: Decentralized Growth</h2>
-      <div class="row">
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-edit logo-small"></span>
-          <h4>Staking</h4>
-          <p>Earn rewards by staking your XXX tokens.</p>
-        </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-share logo-small"></span>
-          <h4>Buyback</h4>
-          <p>We reinvest in strategic projects and conduct token buybacks.</p>
-        </div>
-        <div class="col-sm-4">
-          <span class="glyphicon glyphicon-check logo-small"></span>
-          <h4>Governance</h4>
-          <p>Vote on key proposals shaping the future of the DAO.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="navigation" class="container-fluid bg-grey">
-      <h2 class="text-center">Navigate</h2>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading"><h1>Coinhall</h1></div>
-            <div class="panel-body"><p>Track our XXX liquidity graph</p></div>
-            <div class="panel-footer">
-              <a href="https://coinhall.org/terra/terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg" class="btn btn-info">Visit</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading"><h1>Drogo's Cave</h1></div>
-            <div class="panel-body"><p>Explore our meme coin</p></div>
-            <div class="panel-footer">
-              <a href="https://egrassy.github.io/theonlyonesite/drogo.html" class="btn btn-info">Visit</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading"><h1>XGUY NFTs</h1></div>
-            <div class="panel-body"><p>Discover our official NFT collection</p></div>
-            <div class="panel-footer">
-              <a href="https://www.stargaze.zone/m/stars1l53rkh9zds0vr59fp9e2z6l5d7k6dzxza7809367qrhmxln7rkmqp974zy/tokens" class="btn btn-info">Visit</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="container-fluid text-center">
-      <a href="#myPage" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a>
-      <p>&copy; 2025 The Only One DAO</p>
+      <div class="container footer-bottom"><span>© 2026 The Only One DAO</span><span>Built for the Terra ecosystem</span></div>
     </footer>
     <script src="scriptx.js"></script>
   </body>
