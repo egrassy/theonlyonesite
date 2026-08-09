@@ -2,90 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <title>Drogo</title>
+    <meta name="theme-color" content="#0b0918" />
+    <meta name="description" content="DROGO — a legend in motion on Terra." />
+    <title>Drogo's Cave</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="drogo-theme.css" />
   </head>
-  <body>
-    <header class="grid-stack">
-      <div class="text-center padding-400 surface-neutral-200">
-        <h1 class="fs-900 fw-bold">Drogo's Cave</h1>
-        <p style="color: goldenrod">Where our dragon keeps its treasure!</p>
-      </div>
+  <body id="top" class="drogo-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="drogo-header" data-header>
+      <nav class="drogo-nav" aria-label="Primary navigation">
+        <a class="drogo-brand" href="#top"><span class="brand-glyph">D</span><span>DROGO <em>VAULT</em></span></a>
+        <button class="drogo-menu-toggle" type="button" aria-expanded="false" aria-controls="drogo-menu"><span class="sr-only">Open menu</span><span></span><span></span></button>
+        <div class="drogo-links" id="drogo-menu">
+          <a href="#legend">Legend</a><a href="#experience">Experience</a><a href="#tokenomics">Tokenomics</a><a href="#explore">Explore</a><a class="nav-vault" href="drogo_nft.html">NFT vault ↗</a>
+        </div>
+      </nav>
     </header>
-    <nav class="primary-navigation">
-      <ul class="nav-list">
-        <li><a href="#section-1">Home</a></li>
-        <li><a href="#section-2">Experience</a></li>
-        <li><a href="#section-3">Tokenomics</a></li>
-        <li><a href="#section-4">Socials</a></li>
-      </ul>
-    </nav>
-    <main>
-      <section id="section-1" class="padding-block-600 surface-neutral-900 text-neutral-100">
-        <div class="container flow">
-          <h2 class="fs-800">🐉 DROGO – A LEGEND AMONG MEMECOINS</h2>
-          <p>In a world where markets crash and recover, where memecoins rise and fall, $DROGO still walks.</p>
-          <p>🔥 Welcome to Project DROGO</p>
-          <p>DROGO does not chase hype. It does not react to panic. It simply moves forward—unstoppable, patient, and unwavering.</p>
-          <p>💫 DROGO moves with precision. The faithful stay the course.</p>
+    <main id="main-content">
+      <section class="drogo-hero" aria-labelledby="drogo-title">
+        <img class="hero-art" src="01.webp" alt="" />
+        <div class="hero-shade"></div><div class="cave-rings" aria-hidden="true"></div>
+        <div class="drogo-container hero-inner">
+          <p class="drogo-eyebrow"><span></span> The dragon's treasury</p>
+          <h1 id="drogo-title">A legend<br /><strong>in motion.</strong></h1>
+          <p class="hero-intro">DROGO does not chase hype. It keeps moving — patient, precise and built for those who stay the course.</p>
+          <div class="drogo-actions"><a class="drogo-button primary" href="#explore">Explore $DROGO <span>↗</span></a><a class="drogo-button quiet" href="drogo_nft.html">Enter the vault <span>→</span></a></div>
+          <div class="hero-tags"><span>Terra</span><span>Community</span><span>Legend</span></div>
         </div>
       </section>
-      <section id="section-2" class="padding-block-600 surface-antiquewhite">
-        <div class="container flow">
-          <h2 class="fs-800">$DROGO is not just a cryptocurrency—it’s an evolving legend.</h2>
-          <p>What started as a meme has grown into an unstoppable force, synchronized with $KWEEN, forging a dedicated community.</p>
-          <p>🎭 A Story in Motion: Every move, every shift, a new chapter in DROGO’s legend.</p>
-          <p>🎨 NFTs as Proof: AI-generated NFTs capturing $DROGO’s journey in real-time.</p>
-        </div>
+      <section class="drogo-section legend-section" id="legend">
+        <div class="drogo-container split-layout"><div><p class="drogo-eyebrow"><span></span> 01 / The legend</p><h2>More than a meme.<br /><span>A world to enter.</span></h2></div><div class="copy-block"><p class="lead">In a world where markets crash and recover, where memecoins rise and fall, $DROGO still walks.</p><p>What began as a meme has grown into an evolving legend — synchronized with $KWEEN and carried forward by a dedicated community.</p><div class="quote-mark">“</div></div></div>
       </section>
-      <section id="section-3" class="padding-block-600 surface-neutral-900 text-neutral-100">
-        <div class="container flow">
-          <h2 class="fs-800">🔥 Tokenomics — The Power Behind the Legend</h2>
-          <p>In the ever-changing crypto landscape, DROGO is a force rewarding those who believe and hold.</p>
-          <p>🔥 Staking & Rewards</p>
-          <ul>
-            <li>5B $DROGO Staked → Guaranteed whitelist spot + free NFT.</li>
-            <li>Additional staking → More NFT minting opportunities.</li>
-            <li>Four major snapshots ensure fairness in whitelist access.</li>
-          </ul>
-          <p>📜 DAO Partnerships</p>
-          <ul>
-            <li>✅ PixelLions DAO</li>
-            <li>✅ GMC DAO</li>
-            <li>✅ GUGU DAO</li>
-            <li>✅ DROGO DAO</li>
-          </ul>
-          <p>🚀 Why Just Hold When You Can Stake and Earn?</p>
-        </div>
-      </section>
-      <section id="section-4" class="padding-block-600 surface-antiquewhite">
-        <div class="container flow">
-          <h2 class="fs-800">🌐 Connect with the Legend</h2>
-          <p>Join the journey. Engage, stake, and explore DROGO’s expanding universe:</p>
-          <ul>
-            <li>📊 Live Chart – Watch $DROGO’s movements in real-time.</li>
-            <li>📢 Twitter (X) – Get the latest updates.</li>
-            <li>📝 Medium – Read the full lore behind the legend.</li>
-            <li>💰 Staking Portal – Secure your whitelist and stake for rewards.</li>
-            <li>🎨 NFT Gallery – Discover AI-crafted NFTs from DROGO’s journey.</li>
-          </ul>
-          <p>🐉 The legend grows with every step. Will you claim your place in it?</p>
-        </div>
-      </section>
-      <div class="buttons">
-        <a href="https://coinhall.org/terra/terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja" class="cta-button">Coinhall</a>
-        <a href="https://twitter.com/drogoDao" class="cta-button">Twitter Drogo</a>
-        <a href="https://daodao.zone/dao/terra1r87haucm8gxjjnxdyhgwkqtlct76df4hsgjlj6sa5l2eakjx6sqqtc640g/home" class="cta-button">DAO DAO for rewards</a>
-        <a href="https://medium.com/@theonlyone.dao/drogo-a-legend-that-will-not-be-forgotten-579d1f32998e" class="cta-button">Medium Drogo</a>
-        <a href="drogo_nft.html" class="cta-button">DROGO NFT</a>
-      </div>
+      <section class="drogo-section experience-section" id="experience"><div class="drogo-container experience-grid"><div class="experience-image"><img src="07.webp" alt="A DROGO artwork" loading="lazy" /></div><div class="experience-copy"><p class="drogo-eyebrow"><span></span> 02 / The experience</p><h2>The cave holds<br /><span>every chapter.</span></h2><p>DROGO moves with precision. Every artwork, snapshot and shift becomes another piece of the story.</p><a class="text-link" href="drogo_nft.html">View the visual archive <span>→</span></a></div></div></section>
+      <section class="drogo-section tokenomics-section" id="tokenomics"><div class="drogo-container"><p class="drogo-eyebrow"><span></span> 03 / Tokenomics</p><h2>Built around<br /><span>participation.</span></h2><div class="pillar-grid"><article><span>01</span><h3>Staking & rewards</h3><p>Staking opens reward and whitelist opportunities for the community.</p></article><article><span>02</span><h3>Snapshots</h3><p>Snapshots support fair access across the DROGO journey.</p></article><article><span>03</span><h3>DAO partnerships</h3><p>PixelLions, GMC, GUGU and DROGO DAO are part of the wider story.</p></article></div></div></section>
+      <section class="drogo-section explore-section" id="explore"><div class="drogo-container"><div class="explore-heading"><div><p class="drogo-eyebrow"><span></span> 04 / Explore</p><h2>Choose your<br /><span>next step.</span></h2></div><p>Follow the market, join the conversation, visit the DAO or walk through the visual archive.</p></div><div class="explore-grid"><a href="https://app.astroport.fi/trade?poolAddress=terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja" target="_blank" rel="noreferrer"><small>Market</small><b>Astroport</b><span>Trade $DROGO ↗</span></a><a href="https://twitter.com/drogoDao" target="_blank" rel="noreferrer"><small>Social</small><b>Twitter / X</b><span>Follow Drogo ↗</span></a><a href="https://daodao.zone/dao/terra1r87haucm8gxjjnxdyhgwkqtlct76df4hsgjlj6sa5l2eakjx6sqqtc640g/home" target="_blank" rel="noreferrer"><small>Rewards</small><b>DAO DAO</b><span>Enter DAO ↗</span></a><a href="https://medium.com/@theonlyone.dao/drogo-a-legend-that-will-not-be-forgotten-579d1f32998e" target="_blank" rel="noreferrer"><small>Lore</small><b>Medium</b><span>Read the story ↗</span></a><a class="vault-card" href="drogo_nft.html"><small>Archive</small><b>DROGO Vault</b><span>View 15 artworks →</span></a></div></div></section>
     </main>
+    <footer class="drogo-footer"><div class="drogo-container footer-content"><a class="drogo-brand" href="#top"><span class="brand-glyph">D</span><span>DROGO <em>VAULT</em></span></a><p>Where the dragon keeps its treasure.</p><a href="#top">Back to top ↑</a></div></footer>
     <script src="script.js"></script>
   </body>
 </html>
