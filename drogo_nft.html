@@ -1,93 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styled.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <title>DROGO NFT</title>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#0b0918" />
+    <meta name="description" content="DROGO Vault — the visual archive of the DROGO legend." /><title>DROGO Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="drogo-theme.css" />
   </head>
-  <body>
-    <header class="grid-stack">
-      <div class="text-center padding-400 surface-neutral-200">
-        <h1 class="fs-900 fw-bold">DROGO NFT Gallery</h1>
-        <p style="color: goldenrod">
-          Discover the unique artworks of our dragon's collection made by AI!
-        </p>
-      </div>
-    </header>
-    <nav class="primary-navigation">
-      <ul class="nav-list">
-        <li><a href="drogo.html">Home</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-      </ul>
-    </nav>
+  <body id="top" class="drogo-page vault-page">
+    <a class="skip-link" href="#gallery">Skip to gallery</a>
+    <header class="drogo-header" data-header><nav class="drogo-nav" aria-label="Primary navigation"><a class="drogo-brand" href="drogo.html"><span class="brand-glyph">D</span><span>DROGO <em>VAULT</em></span></a><a class="back-link" href="drogo.html">← Back to the Cave</a></nav></header>
     <main>
-      <section
-        id="gallery"
-        class="padding-block-600 surface-neutral-900 text-neutral-100"
-      >
-        <div class="container flow">
-          <h2 class="fs-800 text-center">Gallery</h2>
-          <p class="text-center">
-This is just a glimpse of what’s coming—our NFTs will look exactly like this!<br>
-Distributed to $DROGO stakers via whitelist spots & snapshots in 2025.<br>
-Click any image to view in full size! 
-          </p>
-          <div class="gallery">
-            <a href="01.webp" target="_blank">
-              <img src="01.webp" alt="NFT 01" />
-            </a>
-            <a href="02.webp" target="_blank">
-              <img src="02.webp" alt="NFT 02" />
-            </a>
-            <a href="03.webp" target="_blank">
-              <img src="03.webp" alt="NFT 03" />
-            </a>
-            <a href="04.webp" target="_blank">
-              <img src="04.webp" alt="NFT 04" />
-            </a>
-            <a href="05.webp" target="_blank">
-              <img src="05.webp" alt="NFT 05" />
-            </a>
-            <a href="06.webp" target="_blank">
-              <img src="06.webp" alt="NFT 06" />
-            </a>
-            <a href="07.webp" target="_blank">
-              <img src="07.webp" alt="NFT 07" />
-            </a>
-            <a href="08.webp" target="_blank">
-              <img src="08.webp" alt="NFT 08" />
-            </a>
-            <a href="09.webp" target="_blank">
-              <img src="09.webp" alt="NFT 09" />
-            </a>
-            <a href="10.webp" target="_blank">
-              <img src="10.webp" alt="NFT 10" />
-            </a>
-            <a href="11.webp" target="_blank">
-              <img src="11.webp" alt="NFT 11" />
-            </a>
-            <a href="12.webp" target="_blank">
-              <img src="12.webp" alt="NFT 12" />
-            </a>
-            <a href="13.webp" target="_blank">
-              <img src="13.webp" alt="NFT 13" />
-            </a>
-            <a href="14.webp" target="_blank">
-              <img src="14.webp" alt="NFT 14" />
-            </a>
-            <a href="15.webp" target="_blank">
-              <img src="15.webp" alt="NFT 15" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <section class="vault-hero"><div class="vault-spark spark-one"></div><div class="vault-spark spark-two"></div><div class="drogo-container vault-hero-inner"><p class="drogo-eyebrow"><span></span> Visual archive / 15 artifacts</p><h1>The dragon's<br /><strong>treasury.</strong></h1><p>A visual archive of the DROGO legend. Each artifact is a glimpse into the cave and the journey beyond it.</p><a class="drogo-button primary" href="#gallery">Enter the archive <span>↓</span></a></div></section>
+      <section class="gallery-section" id="gallery"><div class="drogo-container"><div class="gallery-heading"><div><p class="drogo-eyebrow"><span></span> The collection</p><h2>15 pieces of<br /><span>the legend.</span></h2></div><p>Click an artifact to view it in full. Use the arrow keys to move through the vault.</p></div><div class="vault-gallery">
+        <a href="01.webp" class="artifact" data-artifact="01" data-title="Artifact 01"><img src="01.webp" alt="DROGO artwork 01" /><span>Artifact 01 <b>↗</b></span></a><a href="02.webp" class="artifact" data-artifact="02" data-title="Artifact 02"><img src="02.webp" alt="DROGO artwork 02" loading="lazy" /><span>Artifact 02 <b>↗</b></span></a><a href="03.webp" class="artifact" data-artifact="03" data-title="Artifact 03"><img src="03.webp" alt="DROGO artwork 03" loading="lazy" /><span>Artifact 03 <b>↗</b></span></a><a href="04.webp" class="artifact" data-artifact="04" data-title="Artifact 04"><img src="04.webp" alt="DROGO artwork 04" loading="lazy" /><span>Artifact 04 <b>↗</b></span></a><a href="05.webp" class="artifact" data-artifact="05" data-title="Artifact 05"><img src="05.webp" alt="DROGO artwork 05" loading="lazy" /><span>Artifact 05 <b>↗</b></span></a><a href="06.webp" class="artifact" data-artifact="06" data-title="Artifact 06"><img src="06.webp" alt="DROGO artwork 06" loading="lazy" /><span>Artifact 06 <b>↗</b></span></a><a href="07.webp" class="artifact" data-artifact="07" data-title="Artifact 07"><img src="07.webp" alt="DROGO artwork 07" loading="lazy" /><span>Artifact 07 <b>↗</b></span></a><a href="08.webp" class="artifact" data-artifact="08" data-title="Artifact 08"><img src="08.webp" alt="DROGO artwork 08" loading="lazy" /><span>Artifact 08 <b>↗</b></span></a><a href="09.webp" class="artifact" data-artifact="09" data-title="Artifact 09"><img src="09.webp" alt="DROGO artwork 09" loading="lazy" /><span>Artifact 09 <b>↗</b></span></a><a href="10.webp" class="artifact" data-artifact="10" data-title="Artifact 10"><img src="10.webp" alt="DROGO artwork 10" loading="lazy" /><span>Artifact 10 <b>↗</b></span></a><a href="11.webp" class="artifact" data-artifact="11" data-title="Artifact 11"><img src="11.webp" alt="DROGO artwork 11" loading="lazy" /><span>Artifact 11 <b>↗</b></span></a><a href="12.webp" class="artifact" data-artifact="12" data-title="Artifact 12"><img src="12.webp" alt="DROGO artwork 12" loading="lazy" /><span>Artifact 12 <b>↗</b></span></a><a href="13.webp" class="artifact" data-artifact="13" data-title="Artifact 13"><img src="13.webp" alt="DROGO artwork 13" loading="lazy" /><span>Artifact 13 <b>↗</b></span></a><a href="14.webp" class="artifact" data-artifact="14" data-title="Artifact 14"><img src="14.webp" alt="DROGO artwork 14" loading="lazy" /><span>Artifact 14 <b>↗</b></span></a><a href="15.webp" class="artifact" data-artifact="15" data-title="Artifact 15"><img src="15.webp" alt="DROGO artwork 15" loading="lazy" /><span>Artifact 15 <b>↗</b></span></a>
+      </div></div></section>
     </main>
-    <script src="script.js"></script>
+    <dialog class="lightbox" aria-label="Artwork viewer"><button class="lightbox-close" type="button" aria-label="Close viewer">×</button><button class="lightbox-arrow previous" type="button" aria-label="Previous artwork">←</button><figure><img src="" alt="" /><figcaption></figcaption></figure><button class="lightbox-arrow next" type="button" aria-label="Next artwork">→</button></dialog>
+    <footer class="drogo-footer"><div class="drogo-container footer-content"><a class="drogo-brand" href="drogo.html"><span class="brand-glyph">D</span><span>DROGO <em>VAULT</em></span></a><p>Part of the DROGO legend.</p><a href="drogo.html">Return to the Cave →</a></div></footer><script src="script.js"></script>
   </body>
 </html>
