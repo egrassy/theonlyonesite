@@ -1,11 +1,12 @@
 const MARKET_API = 'https://xxx-drogo-market-data.candyfordegens.workers.dev/candles';
+const METRICS_API = 'https://xxx-drogo-market-data.candyfordegens.workers.dev/metrics';
 const POOLS = {
   'XXX/LUNA': { address: 'terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg', url: 'https://app.astroport.fi/trade?poolAddress=terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg' },
   'DROGO/LUNA': { address: 'terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja', url: 'https://app.astroport.fi/trade?poolAddress=terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja' }
 };
 const INTERVAL = { H1: '60', H4: '240', D1: '1D', W1: '1W' };
 const STEP = { H1: 3600000, H4: 14400000, D1: 86400000, W1: 604800000 };
-let pair = 'XXX/LUNA', timeframe = 'H1', candles = [], zoom = 120, shift = 0, hover = -1, dragX = null;
+let pair = 'XXX/LUNA', timeframe = 'H1', rangeDays = 90, candles = [], zoom = 120, shift = 0, hover = -1, dragX = null;
 const canvas = document.querySelector('#candle-chart');
 const ctx = canvas.getContext('2d');
 
@@ -44,19 +45,21 @@ function aggregate(rows) {
   for (const row of rows) { const key = candleStart(row.time); const current = grouped.get(key); if (current) { current.high = Math.max(current.high, row.high); current.low = Math.min(current.low, row.low); current.close = row.close; current.volume += row.volume; } else grouped.set(key, { ...row, time: key }); }
   return [...grouped.values()];
 }
+function updateStats(rows, metrics) { const latest = rows.at(-1), cutoff = (latest?.time || 0) - 86400000, base = [...rows].reverse().find(p => p.time <= cutoff), change = latest && base ? (latest.close / base.close - 1) * 100 : null, volume = rows.filter(p => p.time > cutoff).reduce((sum, p) => sum + Number(p.volume || 0), 0); document.querySelector('#change-24h').textContent = change === null ? '—' : `${change >= 0 ? '+' : ''}${change.toFixed(2)}%`; document.querySelector('#change-24h').style.color = change >= 0 ? '#f3c85d' : '#9a79ff'; document.querySelector('#volume-24h').textContent = volume ? formatVolume(volume) : '0'; document.querySelector('#liquidity-value').textContent = metrics?.lunaReserve ? `${formatVolume(metrics.lunaReserve)} LUNA` : '—'; }
 async function load() {
   document.querySelector('#chart-status').textContent = 'Loading Astroport candle history…';
   try {
-    const to = Math.floor(Date.now() / 1000), from = to - 90 * 86400;
+    const to = Math.floor(Date.now() / 1000), allowedDays = timeframe === 'H1' || timeframe === 'H4' ? 90 : 365, days = Math.min(rangeDays, allowedDays), from = to - days * 86400;
     const url = new URL(MARKET_API); url.searchParams.set('pair', pair); url.searchParams.set('from', from); url.searchParams.set('to', to);
-    const response = await fetch(url); if (!response.ok) throw new Error('Astroport unavailable'); const payload = await response.json();
+    const metricsUrl = new URL(METRICS_API); metricsUrl.searchParams.set('pair', pair); const [response, metricsResponse] = await Promise.all([fetch(url), fetch(metricsUrl)]); if (!response.ok) throw new Error('Astroport unavailable'); const payload = await response.json(), metrics = metricsResponse.ok ? await metricsResponse.json() : null;
     const rows = (payload?.candles || []).map(p => ({ time: Number(p.time), open: Number(p.open), high: Number(p.high), low: Number(p.low), close: Number(p.close), volume: Number(p.volume || 0) })).filter(p => p.time && p.close > 0).sort((a, b) => a.time - b.time);
     candles = fillGaps(aggregate(rows)); shift = 0; hover = -1; const latest = rows.at(-1);
-    document.querySelector('#price-value').textContent = latest ? formatPrice(latest.close) : '—'; document.querySelector('#chart-status').textContent = latest ? 'Astroport candles · 90-day view · no-trade hours shown as lines' : 'No Astroport trades in this period'; document.querySelector('#updated-at').textContent = latest ? `Last trade ${formatDate(latest.time)}` : '—'; setReadout(null); draw();
+    document.querySelector('#price-value').textContent = latest ? formatPrice(latest.close) : '—'; document.querySelector('#chart-status').textContent = latest ? `Astroport candles · ${days}-day view · no-trade hours shown as lines` : 'No Astroport trades in this period'; document.querySelector('#updated-at').textContent = latest ? `Last trade ${formatDate(latest.time)}` : '—'; updateStats(rows, metrics); setReadout(null); draw();
   } catch { candles = []; document.querySelector('#chart-status').textContent = 'Astroport candle data is temporarily unavailable'; setReadout(null); draw(); }
 }
 document.querySelectorAll('.pair-tab').forEach(button => button.addEventListener('click', () => { pair = button.dataset.pair; document.querySelectorAll('.pair-tab').forEach(x => { x.classList.toggle('is-active', x === button); x.setAttribute('aria-selected', x === button); }); document.querySelector('#pair-label').textContent = pair.replace('/', ' / '); document.querySelector('#trade-link').href = POOLS[pair].url; load(); }));
 document.querySelectorAll('.time-tab').forEach(button => button.addEventListener('click', () => { timeframe = button.dataset.timeframe; document.querySelectorAll('.time-tab').forEach(x => x.classList.toggle('is-active', x === button)); load(); }));
+document.querySelectorAll('.range-tab').forEach(button => button.addEventListener('click', () => { rangeDays = Number(button.dataset.days); document.querySelectorAll('.range-tab').forEach(x => x.classList.toggle('is-active', x === button)); load(); }));
 canvas.addEventListener('mousemove', event => { const rect = canvas.getBoundingClientRect(), points = visible(), width = rect.width - 84; hover = Math.max(0, Math.min(points.length - 1, Math.floor((event.clientX - rect.left - 12) / width * points.length))); if (dragX !== null) { shift = Math.max(0, Math.min(Math.max(0, candles.length - zoom), shift + Math.round((dragX - event.clientX) / 6))); dragX = event.clientX; } setReadout(points, hover); draw(); });
 canvas.addEventListener('mouseleave', () => { hover = -1; dragX = null; setReadout(null); draw(); }); canvas.addEventListener('mousedown', event => { dragX = event.clientX; }); canvas.addEventListener('mouseup', () => { dragX = null; });
 function changeZoom(delta) { zoom = Math.max(20, Math.min(360, zoom + delta)); shift = Math.min(shift, Math.max(0, candles.length - zoom)); draw(); }
