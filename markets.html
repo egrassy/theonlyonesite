@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#100d22" />
+    <meta name="description" content="XXX and DROGO market charts from Astroport pool reserves." />
+    <title>XXX / DROGO Markets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="stylex.css" />
+    <link rel="stylesheet" href="markets.css" />
+  </head>
+  <body class="markets-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header market-header">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="XXX Liquidity DAO home"><span class="brand-mark"><img src="xxx.png" alt="" /></span><span>XXX <em>DAO</em></span></a>
+        <a class="market-back" href="index.html">← Back to DAO</a>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="market-hero">
+        <div class="container">
+          <p class="eyebrow"><span></span> Astroport pool data</p>
+          <h1>Markets, <strong>on-chain.</strong></h1>
+          <p>Estimated pool-price candles built from XXX/LUNA and DROGO/LUNA Astroport reserves. Updated every five minutes.</p>
+        </div>
+      </section>
+      <section class="market-shell container" aria-label="Market charts">
+        <div class="market-tabs" role="tablist" aria-label="Pool selector">
+          <button class="pair-tab is-active" role="tab" aria-selected="true" data-pair="XXX/LUNA">XXX <span>/ LUNA</span></button>
+          <button class="pair-tab" role="tab" aria-selected="false" data-pair="DROGO/LUNA">DROGO <span>/ LUNA</span></button>
+        </div>
+        <article class="chart-panel">
+          <div class="chart-topline">
+            <div><p class="chart-label" id="pair-label">XXX / LUNA</p><p class="chart-price" id="price-value">—</p><p class="chart-meta" id="chart-status">Loading pool data…</p></div>
+            <div class="timeframe" role="group" aria-label="Candle timeframe"><button class="time-tab is-active" data-timeframe="H1">H1</button><button class="time-tab" data-timeframe="D1">D1</button></div>
+          </div>
+          <div class="chart-wrap"><canvas id="candle-chart" aria-label="Candlestick chart"></canvas><p class="chart-empty" id="chart-empty" hidden>No data yet. The first pool sample is being collected.</p></div>
+          <div class="chart-footer"><span><i class="legend-up"></i> Up</span><span><i class="legend-down"></i> Down</span><span><i class="legend-flat"></i> No trades</span><span id="updated-at">—</span></div>
+        </article>
+        <div class="market-details">
+          <article><span>Source</span><strong>Astroport reserves</strong><small>Estimated pool price, not an exchange index.</small></article>
+          <article><span>Sampling</span><strong>Every 5 minutes</strong><small>H1 and D1 candles aggregate recorded samples.</small></article>
+          <a id="trade-link" href="https://app.astroport.fi/trade?poolAddress=terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg" target="_blank" rel="noreferrer"><span>Trade</span><strong>Open in Astroport ↗</strong><small>Trade at your own discretion.</small></a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-bottom"><span>© 2026 The Only One DAO</span><span>Pool data refreshes every 5 minutes</span></div></footer>
+    <script src="markets.js"></script>
+  </body>
+</html>
