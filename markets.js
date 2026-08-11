@@ -1,4 +1,4 @@
-const ASTROPORT_API = 'https://app.astroport.fi/api/trpc/swaps.candles';
+const MARKET_API = 'https://xxx-drogo-market-data.candyfordegens.workers.dev/candles';
 const POOLS = {
   'XXX/LUNA': { address: 'terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg', url: 'https://app.astroport.fi/trade?poolAddress=terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg' },
   'DROGO/LUNA': { address: 'terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja', url: 'https://app.astroport.fi/trade?poolAddress=terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja' }
@@ -41,10 +41,9 @@ async function load() {
   document.querySelector('#chart-status').textContent = 'Loading Astroport candle history…';
   try {
     const to = Math.floor(Date.now() / 1000), from = to - 90 * 86400;
-    const input = { json: { poolAddress: POOLS[pair].address, from, to, quote: 'uluna', interval: '60' } };
-    const url = new URL(ASTROPORT_API); url.searchParams.set('input', JSON.stringify(input));
+    const url = new URL(MARKET_API); url.searchParams.set('pair', pair); url.searchParams.set('from', from); url.searchParams.set('to', to);
     const response = await fetch(url); if (!response.ok) throw new Error('Astroport unavailable'); const payload = await response.json();
-    const rows = (payload?.result?.data?.json || []).map(p => ({ time: Number(p.time), open: Number(p.open), high: Number(p.high), low: Number(p.low), close: Number(p.close), volume: Number(p.volume || 0) })).filter(p => p.time && p.close > 0).sort((a, b) => a.time - b.time);
+    const rows = (payload?.candles || []).map(p => ({ time: Number(p.time), open: Number(p.open), high: Number(p.high), low: Number(p.low), close: Number(p.close), volume: Number(p.volume || 0) })).filter(p => p.time && p.close > 0).sort((a, b) => a.time - b.time);
     candles = fillGaps(aggregate(rows)); shift = 0; hover = -1; const latest = rows.at(-1);
     document.querySelector('#price-value').textContent = latest ? formatPrice(latest.close) : '—'; document.querySelector('#chart-status').textContent = latest ? 'Astroport candles · 90-day view · no-trade hours shown as lines' : 'No Astroport trades in this period'; document.querySelector('#updated-at').textContent = latest ? `Last trade ${formatDate(latest.time)}` : '—'; setReadout(null); draw();
   } catch { candles = []; document.querySelector('#chart-status').textContent = 'Astroport candle data is temporarily unavailable'; setReadout(null); draw(); }
