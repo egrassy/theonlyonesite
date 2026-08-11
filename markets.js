@@ -23,21 +23,24 @@ function draw() {
   canvas.width = rect.width * ratio; canvas.height = rect.height * ratio; ctx.setTransform(ratio, 0, 0, ratio, 0, 0); ctx.clearRect(0, 0, rect.width, rect.height);
   const empty = document.querySelector('#chart-empty'); if (empty) empty.hidden = points.length > 0; if (!points.length) return;
   const values = points.flatMap(p => [p.high, p.low]), min = Math.min(...values), max = Math.max(...values), spread = Math.max(max - min, Math.abs(max) * .03, 1e-18);
-  const pad = { top: 25, right: 72, bottom: 32, left: 12 }, w = rect.width - pad.left - pad.right, h = rect.height - pad.top - pad.bottom, volumeHeight = 60, priceHeight = h - volumeHeight - 10;
+  const pad = { top: 25, right: 72, bottom: 32, left: 12 }, w = rect.width - pad.left - pad.right, h = rect.height - pad.top - pad.bottom, volumeHeight = Math.max(70, Math.min(104, h * .22)), volumeGap = 14, priceHeight = h - volumeHeight - volumeGap;
   const x = i => pad.left + (i + .5) * w / points.length, y = value => pad.top + (max + spread * .1 - value) / (spread * 1.2) * priceHeight;
   ctx.font = '10px DM Mono, monospace'; ctx.textAlign = 'left';
   for (let i = 0; i < 4; i++) { const value = min + spread * i / 3, yy = y(value); ctx.strokeStyle = 'rgba(231,222,255,.12)'; ctx.beginPath(); ctx.moveTo(pad.left, yy); ctx.lineTo(rect.width - pad.right, yy); ctx.stroke(); ctx.fillStyle = '#93899f'; ctx.fillText(value.toExponential(3), rect.width - pad.right + 8, yy + 3); }
   for (let i = 0; i < points.length; i++) { const p = points[i], xx = x(i), up = p.close >= p.open, color = up ? '#f3c85d' : '#9a79ff', width = Math.max(1, Math.min(15, w / points.length * .62)); if (p.flat) { ctx.strokeStyle = '#847a90'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(xx - width / 2, y(p.close)); ctx.lineTo(xx + width / 2, y(p.close)); ctx.stroke(); continue; } ctx.strokeStyle = color; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(xx, y(p.high)); ctx.lineTo(xx, y(p.low)); ctx.stroke(); ctx.fillStyle = color; ctx.fillRect(xx - width / 2, Math.min(y(p.open), y(p.close)), width, Math.max(1, Math.abs(y(p.close) - y(p.open)))); }
-  const maxVolume = Math.max(...points.map(p => Number(p.volume || 0)), 1), volumeTop = pad.top + priceHeight + 10, barWidth = Math.max(1, Math.min(15, w / points.length * .62));
-  ctx.strokeStyle = 'rgba(231,222,255,.12)'; ctx.beginPath(); ctx.moveTo(pad.left, volumeTop - 5); ctx.lineTo(rect.width - pad.right, volumeTop - 5); ctx.stroke();
+  const maxVolume = Math.max(...points.map(p => Number(p.volume || 0)), 1), volumeTop = pad.top + priceHeight + volumeGap, barWidth = Math.max(1, Math.min(15, w / points.length * .62));
+  ctx.fillStyle = 'rgba(8,6,19,.32)'; ctx.fillRect(pad.left, volumeTop - 5, w, volumeHeight + 5);
+  ctx.strokeStyle = 'rgba(231,222,255,.18)'; ctx.beginPath(); ctx.moveTo(pad.left, volumeTop - 5); ctx.lineTo(rect.width - pad.right, volumeTop - 5); ctx.stroke();
   points.forEach((p, i) => { const height = Number(p.volume || 0) / maxVolume * volumeHeight, color = p.close >= p.open ? 'rgba(243,200,93,.60)' : 'rgba(154,121,255,.60)'; ctx.fillStyle = color; ctx.fillRect(x(i) - barWidth / 2, volumeTop + volumeHeight - height, barWidth, height); });
-  ctx.textAlign = 'left'; ctx.fillStyle = '#93899f'; ctx.fillText('Volume', pad.left, volumeTop + 10); ctx.textAlign = 'center';
+  ctx.strokeStyle = 'rgba(231,222,255,.16)'; ctx.beginPath(); ctx.moveTo(pad.left, volumeTop + volumeHeight + .5); ctx.lineTo(rect.width - pad.right, volumeTop + volumeHeight + .5); ctx.stroke();
+  ctx.textAlign = 'left'; ctx.fillStyle = '#93899f'; ctx.fillText(`VOL · max ${formatVolume(maxVolume)}`, pad.left + 6, volumeTop + 12); ctx.textAlign = 'center';
   ctx.textAlign = 'center'; ctx.fillStyle = '#93899f'; const labels = Math.min(6, points.length); for (let i = 0; i < labels; i++) { const index = Math.round(i * (points.length - 1) / Math.max(1, labels - 1)); ctx.fillText(formatAxisDate(points[index].time), x(index), rect.height - 10); }
   if (hover >= 0 && points[hover]) { const xx = x(hover), label = formatDate(points[hover].time), labelWidth = ctx.measureText(label).width + 12, left = Math.max(6, Math.min(rect.width - labelWidth - 6, xx - labelWidth / 2)); ctx.strokeStyle = 'rgba(255,255,255,.32)'; ctx.beginPath(); ctx.moveTo(xx, pad.top); ctx.lineTo(xx, rect.height - pad.bottom); ctx.stroke(); ctx.fillStyle = '#21182f'; ctx.fillRect(left, rect.height - 25, labelWidth, 19); ctx.fillStyle = '#e7deff'; ctx.fillText(label, left + labelWidth / 2, rect.height - 11); }
 }
 function fillGaps(rows) {
   if (!rows.length) return []; const result = [], step = STEP[timeframe]; let last = null, at = candleStart(rows[0].time);
   for (const row of rows) { const target = candleStart(row.time); while (last && at < target) { result.push({ time: at, open: last.close, high: last.close, low: last.close, close: last.close, volume: 0, flat: true, gap: true }); at += step; } result.push({ ...row, time: target, flat: row.open === row.close && row.high === row.low, gap: false }); last = row; at = target + step; }
+  const current = candleStart(Date.now()); while (last && at <= current) { result.push({ time: at, open: last.close, high: last.close, low: last.close, close: last.close, volume: 0, flat: true, gap: true }); at += step; }
   return result;
 }
 function aggregate(rows) {
