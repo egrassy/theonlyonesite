@@ -17,7 +17,7 @@ function setReadout(point) { const node = document.querySelector('#ohlc-readout'
 function draw() {
   const points = visible(), rect = canvas.getBoundingClientRect(), ratio = window.devicePixelRatio || 1;
   canvas.width = rect.width * ratio; canvas.height = rect.height * ratio; ctx.setTransform(ratio, 0, 0, ratio, 0, 0); ctx.clearRect(0, 0, rect.width, rect.height);
-  document.querySelector('#chart-empty').hidden = points.length > 0; if (!points.length) return;
+  const empty = document.querySelector('#chart-empty'); if (empty) empty.hidden = points.length > 0; if (!points.length) return;
   const values = points.flatMap(p => [p.high, p.low]), min = Math.min(...values), max = Math.max(...values), spread = Math.max(max - min, Math.abs(max) * .03, 1e-18);
   const pad = { top: 25, right: 72, bottom: 32, left: 12 }, w = rect.width - pad.left - pad.right, h = rect.height - pad.top - pad.bottom;
   const x = i => pad.left + (i + .5) * w / points.length, y = value => pad.top + (max + spread * .1 - value) / (spread * 1.2) * h;
