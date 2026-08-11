@@ -1,3 +1,4 @@
+const ASTROPORT_API = 'https://app.astroport.fi/api/trpc/swaps.candles';
 const POOLS = {
   'XXX/LUNA': { address: 'terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg', url: 'https://app.astroport.fi/trade?poolAddress=terra1eq67ztwkr66zwpg0vw7k5e6rt0ty9a5ftd5ttcfvd0t0r62sj5tswscxwg' },
   'DROGO/LUNA': { address: 'terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja', url: 'https://app.astroport.fi/trade?poolAddress=terra1syndrvvxshz3getn4r732ywqruf985v20rgl8qe3qy8cdeyt6fqsqlsxja' }
@@ -12,7 +13,7 @@ function formatPrice(value) { return Number(value).toLocaleString('en-US', { max
 function formatDate(time) { return new Date(time).toLocaleString(undefined, { month: 'short', day: 'numeric', year: 'numeric', hour: timeframe === 'H1' || timeframe === 'H4' ? '2-digit' : undefined, minute: timeframe === 'H1' || timeframe === 'H4' ? '2-digit' : undefined }); }
 function candleStart(time) { const d = new Date(time); if (timeframe === 'W1') return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - d.getUTCDay()); if (timeframe === 'D1') return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()); if (timeframe === 'H4') return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), Math.floor(d.getUTCHours() / 4) * 4); return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours()); }
 function visible() { return candles.slice(Math.max(0, candles.length - shift - zoom), Math.max(0, candles.length - shift)); }
-function setReadout(point) { const node = document.querySelector('#ohlc-readout'); if (!point) { node.textContent = 'Najedź na świecę: O — · H — · L — · C — · Δ —'; return; } const change = (point.close / point.open - 1) * 100; node.textContent = `O ${point.open.toExponential(3)} · H ${point.high.toExponential(3)} · L ${point.low.toExponential(3)} · C ${point.close.toExponential(3)} · Δ ${change >= 0 ? '+' : ''}${change.toFixed(2)}%`; }
+function setReadout(point) { const node = document.querySelector('#ohlc-readout'); if (!point) { node.textContent = 'Hover a candle: O — · H — · L — · C — · Δ —'; return; } const change = (point.close / point.open - 1) * 100; node.textContent = `O ${point.open.toExponential(3)} · H ${point.high.toExponential(3)} · L ${point.low.toExponential(3)} · C ${point.close.toExponential(3)} · Δ ${change >= 0 ? '+' : ''}${change.toFixed(2)}%`; }
 function draw() {
   const points = visible(), rect = canvas.getBoundingClientRect(), ratio = window.devicePixelRatio || 1;
   canvas.width = rect.width * ratio; canvas.height = rect.height * ratio; ctx.setTransform(ratio, 0, 0, ratio, 0, 0); ctx.clearRect(0, 0, rect.width, rect.height);
