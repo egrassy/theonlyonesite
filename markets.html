@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="stylex.css" />
     <link rel="stylesheet" href="markets.css?v=20260811c" />
+    <style>.range-tabs{display:flex;gap:6px;margin-top:18px}.range-tab{padding:7px 10px;border:1px solid var(--line);background:#17132b;color:#aaa0bf;cursor:pointer;font:700 11px var(--mono)}.range-tab.is-active,.range-tab:hover{border-color:var(--gold);background:#211a34;color:var(--gold)}.chart-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.chart-stats article{padding:13px 15px;border:1px solid var(--line);background:#100d22}.chart-stats span{display:block;color:#93899f;font:10px var(--mono);text-transform:uppercase}.chart-stats strong{display:block;margin-top:6px;color:var(--gold);font:700 16px var(--mono)}@media(max-width:760px){.chart-stats{grid-template-columns:1fr}}</style>
   </head>
   <body class="markets-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -40,8 +41,10 @@
             <div class="chart-readout" id="ohlc-readout">Hover a candle: O — · H — · L — · C — · Δ — · Vol —</div>
             <div class="chart-zoom" aria-label="Chart zoom"><button id="zoom-out" type="button" aria-label="Zoom out">−</button><button id="zoom-in" type="button" aria-label="Zoom in">+</button></div>
           </div>
+          <div class="range-tabs" role="group" aria-label="Chart range"><button class="range-tab" data-days="7">7D</button><button class="range-tab" data-days="30">30D</button><button class="range-tab is-active" data-days="90">90D</button><button class="range-tab" data-days="365">1Y</button></div>
           <div class="chart-wrap"><canvas id="candle-chart" aria-label="Candlestick chart"></canvas></div>
           <div class="chart-footer"><span><i class="legend-up"></i> Up</span><span><i class="legend-down"></i> Down</span><span><i class="legend-flat"></i> No trades</span><span id="updated-at">—</span></div>
+          <div class="chart-stats" aria-label="Market statistics"><article><span>24h change</span><strong id="change-24h">—</strong></article><article><span>24h volume</span><strong id="volume-24h">—</strong></article><article><span>Pool liquidity</span><strong id="liquidity-value">—</strong></article></div>
         </article>
         <div class="market-details">
           <article><span>Source</span><strong>Astroport candles</strong><small>Direct pool history, quoted in LUNA.</small></article>
@@ -51,6 +54,6 @@
       </section>
     </main>
     <footer class="site-footer"><div class="container footer-bottom"><span>© 2026 The Only One DAO</span><span>Pool data refreshes every 5 minutes</span></div></footer>
-    <script src="markets.js?v=20260811e"></script>
+    <script src="markets.js?v=20260811f"></script>
   </body>
 </html>
